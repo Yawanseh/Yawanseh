@@ -1,6 +1,7 @@
 import Footer from "@/components/footer";
 import {
   defaultTheme,
+  siteDescription,
   siteName,
   twitterCreator,
   twitterSite,
@@ -12,6 +13,7 @@ export const metadata = {
     default: siteName,
     template: `%s | ${siteName}`,
   },
+  description: siteDescription,
   robots: {
     follow: true,
     index: true,
