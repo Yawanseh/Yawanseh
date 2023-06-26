@@ -28,7 +28,7 @@ export default async function Post({
   } = await getPostById(id);
 
   return (
-    <article className="bg-base-300 border border-base-content/30">
+    <article className="bg-base-300 border border-base-content/30 max-w-[100%]">
       {cover && (
         <Image
           src={cover}

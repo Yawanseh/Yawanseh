@@ -1,9 +1,7 @@
 import { getAllPosts } from "@/lib/api";
 import { MetadataRoute } from "next";
 
-const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
-  ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-  : "http://localhost:3000";
+const baseUrl = "https://www.yawanseh.com";
 
 export default async function sitemap(): Promise<
   Promise<Promise<MetadataRoute.Sitemap>>
