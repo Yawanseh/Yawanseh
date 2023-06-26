@@ -13,7 +13,7 @@ export default async function sitemap(): Promise<
 
   const postsPromise = getAllPosts().then((posts) =>
     posts.map((post) => ({
-      url: `${baseUrl}/${post.id}`,
+      url: `${baseUrl}/posts/${post.id}`,
       lastModified: post.updated_at,
     }))
   );
