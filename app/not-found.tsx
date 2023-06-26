@@ -1,7 +1,8 @@
 "use client";
 
-import Image from "next/image";
+import Image from "next-image-export-optimizer";
 import Link from "next/link";
+
 const NotFound = (): JSX.Element => {
   return (
     <div className="card bg-base-300 w-full mb-4 border border-base-content/30">
@@ -17,7 +18,7 @@ const NotFound = (): JSX.Element => {
         </Link>
       </div>
       <Image
-        src="/assets/laith-memoji-calm.png"
+        src="/images/laith-memoji-calm.png"
         alt="blog image"
         width="250"
         height="250"

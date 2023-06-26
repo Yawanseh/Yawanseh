@@ -1,5 +1,5 @@
 import { getAllPosts, getPostById } from "@/lib/api";
-import Image from "next/image";
+import Image from "next-image-export-optimizer";
 
 export async function generateMetadata({
   params: { id },
@@ -35,6 +35,7 @@ export default async function Post({
           alt="blog image"
           width="1200"
           height="600"
+          priority
           className="w-full object-cover"
         />
       )}

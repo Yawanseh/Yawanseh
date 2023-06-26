@@ -2,7 +2,7 @@
 title: "GitHub Flavored Markdown Test"
 description: "A reference for github-flavored-markdown styling (and possibly behavior)"
 published: true
-cover: /assets/an_image_visualizing_a_markdown_file_with_Git_67514f4a-f054-415c-bb8c-fff2e1aa23f9.png
+cover: /images/an_image_visualizing_a_markdown_file_with_Git_67514f4a-f054-415c-bb8c-fff2e1aa23f9.png
 published_at: 2015-11-18T08:14:24.417Z
 tags: Github, Markdown, Test
 ---

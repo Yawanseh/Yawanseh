@@ -39,3 +39,7 @@ drafts/
 
 # IDE
 .vscode/
+
+# optimized images
+public/images/nextImageExportOptimizer
+next-image-export-optimizer-hashes.json

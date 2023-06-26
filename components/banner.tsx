@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next-image-export-optimizer";
 import SocialLinks from "./social-icons";
 
 const Banner = (): JSX.Element => {
@@ -21,7 +21,7 @@ const Banner = (): JSX.Element => {
         </div>
         <div className="w-full max-w-[320px]">
           <Image
-            src="/assets/laith-memoji.png"
+            src="/images/laith-memoji.png"
             alt="blog image"
             width="250"
             height="250"

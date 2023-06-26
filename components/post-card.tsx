@@ -1,5 +1,5 @@
 import { Post } from "@/lib/api";
-import Image from "next/image";
+import Image from "next-image-export-optimizer";
 import Link from "next/link";
 
 export type ExtendedPostCard = { cardStyle?: string, isBanner?: boolean } & Post;

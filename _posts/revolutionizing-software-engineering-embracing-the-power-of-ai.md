@@ -2,7 +2,7 @@
 title: "Revolutionizing Software Engineering: Embracing the Power of AI"
 description: "An insightful guide that encourages software engineers to integrate artificial intelligence (AI) into their work and provides a roadmap to start this journey. The article highlights the transformative potential of AI and emphasizes its significance in various industries. It then offers a step-by-step approach to understanding and applying AI, starting from learning basic AI concepts to exploring AI platforms and tools, collaborating with AI experts, and incorporating iterative experimentation into the development process. The guide also provides a particular emphasis on the capabilities of OpenAI's GPT-4 and how it can be utilized by engineers."
 published: true
-cover: /assets/a_software_engineer_surrounded_by_screens_fill_85653724-3368-4638-93ab-e7997844b06f.png
+cover: /images/a_software_engineer_surrounded_by_screens_fill_85653724-3368-4638-93ab-e7997844b06f.png
 published_at: 2023-03-17T23:32:24.417Z
 tags: AI, Learning
 ---

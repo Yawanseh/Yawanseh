@@ -2,7 +2,7 @@
 title: "Figma's New Frontier: Bridging the Gap Between Designers and Developers"
 description: "Explore Figma's innovative features that bridge the gap between designers and developers. Learn how Figma's VS Code extension, Dev Mode, and GitHub integration streamline the design-to-code transition, fostering better collaboration and efficiency in software development."
 published: true
-cover: /assets/figma-for-developers.jpg
+cover: /images/figma-for-developers.jpg
 published_at: 2023-06-26T08:14:24.417Z
 tags: Figma, Design Tools
 ---
