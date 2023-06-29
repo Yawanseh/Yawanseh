@@ -9,6 +9,10 @@ import {
 import "./globals.css";
 
 export const metadata = {
+  metadataBase: new URL("https://yawanseh.com"),
+  alternates: {
+    canonical: "/",
+  },
   title: {
     default: siteName,
     template: `%s | ${siteName}`,
@@ -17,6 +21,9 @@ export const metadata = {
   robots: {
     follow: true,
     index: true,
+  },
+  openGraph: {
+    images: "/public/images",
   },
   ...(twitterCreator &&
     twitterSite && {

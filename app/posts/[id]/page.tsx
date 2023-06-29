@@ -9,7 +9,7 @@ export async function generateMetadata({
   const { title, description } = await getPostById(id);
   return {
     title,
-    description
+    description,
   };
 }
 
@@ -18,14 +18,8 @@ export default async function Post({
 }: {
   params: { id: string };
 }) {
-  const {
-    html,
-    title,
-    publishedAt,
-    tags,
-    updatedAt,
-    cover,
-  } = await getPostById(id);
+  const { html, title, publishedAt, tags, updatedAt, cover } =
+    await getPostById(id);
 
   return (
     <article className="bg-base-300 border border-base-content/30 max-w-[100%]">
@@ -33,8 +27,8 @@ export default async function Post({
         <Image
           src={cover}
           alt="blog image"
-          width="1200"
-          height="600"
+          width={1200}
+          height={300}
           priority
           className="w-full object-cover"
         />

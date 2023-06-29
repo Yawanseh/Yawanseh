@@ -2,7 +2,10 @@ import { Post } from "@/lib/api";
 import Image from "next-image-export-optimizer";
 import Link from "next/link";
 
-export type ExtendedPostCard = { cardStyle?: string, isBanner?: boolean } & Post;
+export type ExtendedPostCard = {
+  cardStyle?: string;
+  isBanner?: boolean;
+} & Post;
 
 const PostCard: React.FC<ExtendedPostCard> = ({
   id,
@@ -22,7 +25,12 @@ const PostCard: React.FC<ExtendedPostCard> = ({
     >
       {cover && (
         <figure>
-          <Image src={cover} alt="blog image" width="1200" height="600" />
+          <Image
+            src={cover}
+            alt="blog image"
+            width={isBanner ? 1200 : 600}
+            height={isBanner ? 300 : 150}
+          />
         </figure>
       )}
       <div className="card-body">

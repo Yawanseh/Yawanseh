@@ -8,6 +8,7 @@ const SocialLinks: React.FC = () => {
         className="px-3 hover:animate-pulse"
         target="_blank"
         rel="noopener noreferrer"
+        aria-labelledby="Twitter"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -24,6 +25,7 @@ const SocialLinks: React.FC = () => {
         className="px-3 hover:animate-pulse"
         target="_blank"
         rel="noopener noreferrer"
+        aria-labelledby="Github"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -40,6 +42,7 @@ const SocialLinks: React.FC = () => {
         className="px-3 hover:animate-pulse"
         target="_blank"
         rel="noopener noreferrer"
+        aria-labelledby="Linkedin"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
