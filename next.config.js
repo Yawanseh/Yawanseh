@@ -3,6 +3,7 @@ const nextConfig = {
   output: "export",
   compress: true,
   optimizeFonts: true,
+  trailingSlash: true,
   amp: {
     canonicalBase: "https://yawanseh.com",
   },
