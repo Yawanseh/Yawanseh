@@ -44,7 +44,7 @@ jobs:
     needs: build
     environment:
       name: production
-      url: https://yawanseh.com
+      url: https://www.yawanseh.com
     steps:
       - name: Download landing page artifact
         uses: actions/download-artifact@v2

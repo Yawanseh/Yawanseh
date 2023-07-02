@@ -9,7 +9,7 @@ import {
 import "./globals.css";
 
 export const metadata = {
-  metadataBase: new URL("https://yawanseh.com"),
+  metadataBase: new URL("https://www.yawanseh.com"),
   alternates: {
     canonical: "/",
   },

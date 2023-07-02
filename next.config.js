@@ -5,7 +5,7 @@ const nextConfig = {
   optimizeFonts: true,
   trailingSlash: true,
   amp: {
-    canonicalBase: "https://yawanseh.com",
+    canonicalBase: "https://www.yawanseh.com",
   },
   images: {
     loader: "custom",
