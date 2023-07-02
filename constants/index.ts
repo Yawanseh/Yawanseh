@@ -6,3 +6,4 @@ export const siteKeywords = "Laith Younes, Software Engineer, Developer";
 export const siteUrl = "https://yawanseh.com";
 export const twitterCreator = "@LaithYounesY";
 export const twitterSite = "https://twitter.com/LaithYounesY";
+export const copyWrite = "Laith Younes";
