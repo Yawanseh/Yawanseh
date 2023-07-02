@@ -1,6 +1,12 @@
 import Aside from "@/components/aside";
 
-export default function RootLayout({ children, params }: { children: React.ReactNode, params: { id: string } }) {
+export default function RootLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: { id: string };
+}) {
   return (
     <div className="container mx-auto flex flex-wrap">
       <div className="w-full xl:w-2/3 flex flex-col items-center">
