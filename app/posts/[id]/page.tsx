@@ -6,12 +6,15 @@ export async function generateMetadata({
 }: {
   params: { id: string };
 }) {
-  const { title, description } = await getPostById(id);
+  const { title, description, cover } = await getPostById(id);
   return {
     title,
     description,
     alternates: {
       canonical: `/posts/${id}`,
+    },
+    openGraph: {
+      images: cover,
     },
   };
 }

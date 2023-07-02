@@ -4,9 +4,6 @@ const nextConfig = {
   compress: true,
   optimizeFonts: true,
   trailingSlash: true,
-  amp: {
-    canonicalBase: "https://www.yawanseh.com",
-  },
   images: {
     loader: "custom",
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],

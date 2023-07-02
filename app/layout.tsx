@@ -3,13 +3,14 @@ import {
   defaultTheme,
   siteDescription,
   siteName,
+  siteUrl,
   twitterCreator,
   twitterSite,
 } from "@/constants";
 import "./globals.css";
 
 export const metadata = {
-  metadataBase: new URL("https://www.yawanseh.com"),
+  metadataBase: new URL(siteUrl),
   alternates: {
     canonical: "/",
   },

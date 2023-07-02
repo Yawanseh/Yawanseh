@@ -1,4 +1,4 @@
-const baseUrl = "https://www.yawanseh.com";
+import { siteUrl } from "@/constants";
 
 export default function robots() {
   return {
@@ -7,7 +7,7 @@ export default function robots() {
         userAgent: "*",
       },
     ],
-    sitemap: `${baseUrl}/sitemap.xml`,
-    host: baseUrl,
+    sitemap: `${siteUrl}/sitemap.xml`,
+    host: siteUrl,
   };
 }
