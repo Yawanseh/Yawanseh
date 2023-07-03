@@ -41,7 +41,7 @@ export default async function Post({
       )}
       <div className="p-12">
         <h1 className="text-4xl font-extrabold">{title}</h1>
-        <h4 className="my-3 text-sm text-base-content/60">{`Posted on ${publishedAt} • Updated on ${updatedAt}`}</h4>
+        <h4 className="my-3 text-sm text-base-content/60">{`Posted on ${publishedAt}`}</h4>
         <div className="mt-4 mb-10">
           {tags?.map((tag: string) => (
             <div key={`${id}-${tag}`} className="badge badge-outline mr-2">

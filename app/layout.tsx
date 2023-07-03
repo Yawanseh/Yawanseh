@@ -24,7 +24,7 @@ export const metadata = {
     index: true,
   },
   openGraph: {
-    images: "/public/images",
+    images: "/images/og-image.png",
   },
   ...(twitterCreator &&
     twitterSite && {

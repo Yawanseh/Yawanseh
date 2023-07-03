@@ -14,7 +14,6 @@ const PostCard: React.FC<ExtendedPostCard> = ({
   cover,
   publishedAt,
   tags,
-  // updatedAt,
   cardStyle,
   isBanner,
 }) => {
