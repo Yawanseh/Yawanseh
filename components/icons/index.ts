@@ -1,3 +1,4 @@
+import GithubIcon from "./github";
 import TwitterIcon from "./twitter";
 
-export { TwitterIcon };
+export { GithubIcon, TwitterIcon };
