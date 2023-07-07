@@ -50,7 +50,7 @@ export default async function Post({
           ))}
         </div>
         <div
-          className="min-h-16 break-all prose"
+          className="min-h-16 break-words prose"
           dangerouslySetInnerHTML={{ __html: html }}
         />
       </div>
