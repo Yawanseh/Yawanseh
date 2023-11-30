@@ -1,4 +1,5 @@
 import Footer from "@/components/footer";
+import GTagLayout from "@/components/layout/gtag-layout";
 import {
   defaultTheme,
   siteDescription,
@@ -43,10 +44,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" data-theme={defaultTheme.value}>
-      <body className="min-h-screen max-w-7xl m-auto p-6 md:p-24">
-        <main className="min-h-[calc(100vh-250px)]">{children}</main>
-        <Footer />
-      </body>
+      <GTagLayout>
+        <body className="min-h-screen max-w-7xl m-auto p-6 md:p-24">
+          <main className="min-h-[calc(100vh-250px)]">{children}</main>
+          <Footer />
+        </body>
+      </GTagLayout>
     </html>
   );
 }
