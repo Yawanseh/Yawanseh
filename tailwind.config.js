@@ -1,43 +1,18 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: ["class"],
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  plugins: [require("@tailwindcss/typography"), require("daisyui")],
-  safelist: [],
-  daisyui: {
-    themes: [
-      "acid",
-      "aqua",
-      "autumn",
-      "black",
-      "bumblebee",
-      "business",
-      "cmyk",
-      "coffee",
-      "corporate",
-      "cupcake",
-      "cyberpunk",
-      "dark",
-      "dracula",
-      "emerald",
-      "fantasy",
-      "forest",
-      "garden",
-      "halloween",
-      "lemonade",
-      "light",
-      "lofi",
-      "luxury",
-      "night",
-      "pastel",
-      "retro",
-      "synthwave",
-      "valentine",
-      "winter",
-      "wireframe",
-    ],
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ["var(--font-sans)"],
+        mono: ["var(--font-mono)"],
+      },
+    },
   },
+  plugins: [require("@tailwindcss/typography")],
 };

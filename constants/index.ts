@@ -1,9 +1,21 @@
-export const defaultTheme = { value: "black", label: "Black" };
-export const siteName = "Laith's Journey: Driving Innovation & Excellence";
+export const roleLabel = "Senior Software Engineering Manager";
+export const companyLabel = "Careem";
+
+// Past work / things Laith has built. Careem is current (shown in the hero + header).
+export const previousWork = [
+  "Meta",
+  "Majid Al Futtaim",
+  "Forbes",
+  "Founder · Estoul",
+  "Creator · GuideScript",
+];
+
+export const siteName = "Laith Younes · Engineering Leadership & Product";
 export const siteDescription =
-  "currently serving as an Engineering Manager at Majid Al Futtaim. I'm based in Amman, Jordan, and my core expertise lies in managing and leading technical teams to drive innovation and excellence in product development.";
-export const siteKeywords = "Laith Younes, Software Engineer, Developer";
+  "Senior Software Engineering Manager at Careem. I help businesses grow their products and their teams by building scalable, user-centric software.";
+export const siteKeywords =
+  "Laith Younes, Engineering Manager, Careem, Software Engineering, Product";
 export const siteUrl = "https://www.yawanseh.com";
 export const twitterCreator = "@LaithYounesY";
-export const twitterSite = "https://twitter.com/LaithYounesY";
+export const twitterSite = "https://x.com/LaithYounesY";
 export const copyWrite = "Laith Younes";

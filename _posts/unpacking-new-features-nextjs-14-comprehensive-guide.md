@@ -1,7 +1,7 @@
 ---
 title: "Unpacking the New Features of Next.js 14: A Comprehensive Guide"
 description: "This guide delves into the latest features and improvements in Next.js 14, including local development performance enhancements, the stability of Server Actions, Partial Prerendering, metadata improvements, and a free Next.js course. It provides a detailed and informative overview following the style and content of Tuomo Kankaanpää's video 'Next.js 14 - All you need to know.'"
-published: true
+published: false
 cover: /images/nextjs14-features.jpg
 published_at: 2023-10-30T23:32:24.417Z
 tags: Next.js, Web Development, JavaScript, React

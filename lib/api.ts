@@ -4,6 +4,7 @@ import matter from "gray-matter";
 import { join } from "path";
 import Showdown from "showdown";
 import { any, array, boolean, date, object, string, z } from "zod";
+import { timeAgo, toISO } from "./time";
 
 // Zod schema for post data
 export const PostSchema = object({
@@ -18,6 +19,8 @@ export const PostSchema = object({
   tags: array(string()),
   title: string(),
   updatedAt: string().optional(),
+  readingTime: string().optional(),
+  publishedAtISO: string().optional(),
 });
 
 export type Post = z.infer<typeof PostSchema>;
@@ -42,6 +45,9 @@ export async function getPostById(postId: string): Promise<Post> {
 
   const htmlContent = markdownConverter.makeHtml(content);
 
+  const words = content.trim().split(/\s+/).filter(Boolean).length;
+  const minutes = Math.max(1, Math.round(words / 200));
+
   const postData = {
     ...data,
     published_at: data.published_at,
@@ -51,10 +57,12 @@ export async function getPostById(postId: string): Promise<Post> {
     html: htmlContent,
     id: postIdWithoutExtension,
     published: data.published,
-    publishedAt: formatDate(data.published_at),
+    publishedAt: timeAgo(data.published_at),
     tags: data.tags?.split(",") || [],
     title: data.title,
     updatedAt: formatDate(lastEditDate),
+    readingTime: `${minutes} min read`,
+    publishedAtISO: toISO(data.published_at),
   };
 
   // Validate the data with Zod
@@ -67,7 +75,9 @@ export async function getAllPosts(): Promise<Array<Post>> {
   const postFilenames = fs.readdirSync("_posts");
   const posts = await Promise.all(postFilenames.map((id) => getPostById(id)));
 
-  return posts.sort((post1, post2) =>
-    compareAsc(post2.published_at, post1.published_at)
-  );
+  return posts
+    .filter((post) => post.published)
+    .sort((post1, post2) =>
+      compareAsc(post2.published_at, post1.published_at)
+    );
 }

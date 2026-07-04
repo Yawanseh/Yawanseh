@@ -42,4 +42,5 @@ drafts/
 
 # optimized images
 public/images/nextImageExportOptimizer
+public/images/**/nextImageExportOptimizer
 next-image-export-optimizer-hashes.json

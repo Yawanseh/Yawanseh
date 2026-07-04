@@ -1,5 +1,5 @@
 import GithubIcon from "./github";
 import LinkedinIcon from "./linkedin";
-import TwitterIcon from "./twitter";
+import XIcon from "./x";
 
-export { GithubIcon, LinkedinIcon, TwitterIcon };
+export { GithubIcon, LinkedinIcon, XIcon };

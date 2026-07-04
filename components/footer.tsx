@@ -1,18 +1,24 @@
-import { copyWrite } from "@/constants";
+import { companyLabel, copyWrite } from "@/constants";
 import SocialLinks from "./social-icons";
-import ThemeConfiguratore from "./theme-configuratore";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="footer card w-full bg-base-300 border border-base-content/30 mt-4">
-      <div className="card-body flex md:flex-row flex-col-reverse justify-between items-center w-full p-3 md:p-6">
-        <p className="flex-1">{`${copyWrite} © 2023`}</p>
-        <div className="flex-1 flex-row flex md:m-0 my-6">
+    <footer className="mt-24">
+      <div className="border-t border-[var(--line-soft)] pt-10">
+        <div className="flex flex-col items-center gap-8 md:flex-row md:items-end md:justify-between md:gap-6">
+          <div className="flex flex-col items-center gap-2 md:items-start">
+            <span className="display text-lg tracking-tight text-[var(--ink)]">
+              Laith Younes
+            </span>
+            <p className="text-sm text-[var(--ink-faint)]">{companyLabel}</p>
+          </div>
+
           <SocialLinks />
         </div>
-        <div className="hidden md:block">
-          <ThemeConfiguratore />
-        </div>
+
+        <p className="mt-10 text-center text-xs text-[var(--ink-faint)] md:text-left">
+          {`© ${new Date().getFullYear()} ${copyWrite}. All rights reserved.`}
+        </p>
       </div>
     </footer>
   );

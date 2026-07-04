@@ -5,25 +5,35 @@ import Link from "next/link";
 
 const NotFound = (): JSX.Element => {
   return (
-    <div className="card bg-base-300 w-full mb-4 border border-base-content/30">
-      <div className="card-body flex flex-column justify-between items-center">
-        <p className="card-title font-extrabold text-transparent text-8xl bg-clip-text bg-gradient-to-b from-base-content to-base-content/50 pb-5">
-          404
-        </p>
-        <p className="card-title font-extrabold text-transparent text-4xl bg-clip-text bg-gradient-to-b from-base-content to-base-content/50 pb-5">
-          PAGE NOT FOUND
-        </p>
-        <Link href="/" className="btn btn-wide mt-32 capitalize">
-          Back to Home
-        </Link>
+    <div className="flex flex-col items-center px-6 py-20 text-center sm:py-28">
+      <div className="grid h-36 w-36 place-items-center rounded-full border border-[var(--line-soft)] bg-[var(--surface-2)]">
+        <Image
+          src="/images/laith-memoji-calm.png"
+          alt="Laith Younes"
+          width="140"
+          height="140"
+        />
       </div>
-      <Image
-        src="/images/laith-memoji-calm.png"
-        alt="blog image"
-        width="250"
-        height="250"
-        className="m-auto"
-      />
+
+      <p className="display mt-9 text-7xl tracking-tight text-[var(--ink)] sm:text-8xl">
+        404
+      </p>
+      <p className="mt-3 text-lg text-[var(--ink-soft)]">
+        This page wandered off. Let&apos;s get you back on track.
+      </p>
+
+      <Link href="/" className="btn-pill mt-10">
+        Back to home
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M5 12h14M13 6l6 6-6 6"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </Link>
     </div>
   );
 };

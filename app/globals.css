@@ -1,3 +1,341 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ============================================================
+   Monochrome design system, Apple-inspired, light + dark
+   ============================================================ */
+:root {
+  /* light (default) */
+  --bg: #ffffff;
+  --bg-subtle: #f5f5f7;
+  --surface: #ffffff;
+  --surface-2: #f5f5f7;
+  --ink: #1d1d1f;
+  --ink-soft: #6e6e73;
+  --ink-faint: #86868b;
+  --line: #d2d2d7;
+  --line-soft: #e8e8ed;
+  --grid-line: rgba(29, 29, 31, 0.04);
+  --grid-line-strong: rgba(29, 29, 31, 0.07);
+  --invert-bg: #1d1d1f;
+  --invert-ink: #f5f5f7;
+  --glass: rgba(255, 255, 255, 0.72);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 30px 60px -25px rgba(0, 0, 0, 0.22),
+    0 10px 30px -18px rgba(0, 0, 0, 0.14);
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+    "SF Pro Text", var(--font-fallback), "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+  --font-mono: "SF Mono", ui-monospace, "JetBrains Mono", Menlo, monospace;
+
+  --page-max: 72rem;
+}
+
+.dark {
+  --bg: #000000;
+  --bg-subtle: #0a0a0b;
+  --surface: #131315;
+  --surface-2: #1c1c1e;
+  --ink: #f5f5f7;
+  --ink-soft: #a1a1a6;
+  --ink-faint: #6e6e73;
+  --line: #2a2a2d;
+  --line-soft: #202023;
+  --grid-line: rgba(255, 255, 255, 0.03);
+  --grid-line-strong: rgba(255, 255, 255, 0.055);
+  --invert-bg: #f5f5f7;
+  --invert-ink: #1d1d1f;
+  --glass: rgba(20, 20, 22, 0.72);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 30px 60px -25px rgba(0, 0, 0, 0.8),
+    0 10px 30px -18px rgba(0, 0, 0, 0.6);
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  letter-spacing: -0.011em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Graph-paper backdrop — 28px minor grid (matches card radius), 140px major.
+   Fixed behind all content, subtle so cards float on it. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: linear-gradient(
+      to right,
+      var(--grid-line) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to right, var(--grid-line-strong) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line-strong) 1px, transparent 1px);
+  background-size: 28px 28px, 28px 28px, 140px 140px, 140px 140px;
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+/* Images are not draggable */
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+/* ============================================================
+   Reusable surfaces & bits (theme-aware via vars)
+   ============================================================ */
+@layer components {
+  .surface {
+    @apply rounded-[1.75rem] border;
+    background: var(--surface);
+    border-color: var(--line-soft);
+    box-shadow: var(--shadow-md);
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-[0.72rem] font-semibold uppercase tracking-[0.24em];
+    color: var(--ink-faint);
+  }
+
+  .display {
+    letter-spacing: -0.025em;
+    font-weight: 600;
+  }
+
+  /* Pill chips */
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium;
+    border-color: var(--line);
+    color: var(--ink-soft);
+    background: transparent;
+  }
+
+  .chip-solid {
+    border-color: transparent;
+    color: var(--invert-ink);
+    background: var(--invert-bg);
+  }
+
+  /* Icon buttons (social) */
+  .icon-btn {
+    @apply grid h-10 w-10 place-items-center rounded-full border transition-all duration-200;
+    border-color: var(--line);
+    color: var(--ink-soft);
+    background: transparent;
+  }
+  .icon-btn:hover {
+    color: var(--ink);
+    border-color: var(--ink);
+    transform: translateY(-2px);
+  }
+
+  /* Primary pill button (Apple-style) */
+  .btn-pill {
+    @apply inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-all duration-200;
+    background: var(--invert-bg);
+    color: var(--invert-ink);
+  }
+  .btn-pill:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+
+  /* Text link with animated underline */
+  .link-underline {
+    @apply relative inline-flex items-center gap-1 font-medium;
+    color: var(--ink);
+  }
+  .link-underline::after {
+    content: "";
+    @apply absolute -bottom-0.5 left-0 h-px w-full origin-right scale-x-0 transition-transform duration-300;
+    background: currentColor;
+  }
+  .link-underline:hover::after {
+    @apply origin-left scale-x-100;
+  }
+}
+
+/* ============================================================
+   Entrance animations (respect reduced motion)
+   ============================================================ */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rise {
+  opacity: 0;
+  animation: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.rise-1 {
+  animation-delay: 0.04s;
+}
+.rise-2 {
+  animation-delay: 0.12s;
+}
+.rise-3 {
+  animation-delay: 0.22s;
+}
+.rise-4 {
+  animation-delay: 0.32s;
+}
+.rise-5 {
+  animation-delay: 0.42s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise {
+    opacity: 1;
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+  body {
+    transition: none;
+  }
+}
+
+/* ============================================================
+   Article prose (monochrome, theme-aware)
+   ============================================================ */
+.prose {
+  --tw-prose-body: var(--ink-soft);
+  --tw-prose-headings: var(--ink);
+  --tw-prose-links: var(--ink);
+  --tw-prose-bold: var(--ink);
+  --tw-prose-quotes: var(--ink);
+  --tw-prose-quote-borders: var(--ink);
+  --tw-prose-code: var(--ink);
+  --tw-prose-bullets: var(--line);
+  --tw-prose-hr: var(--line-soft);
+  --tw-prose-counters: var(--ink-faint);
+  max-width: 100%;
+}
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  letter-spacing: -0.025em;
+  font-weight: 600;
+}
+.prose a {
+  text-decoration-color: var(--line);
+  text-underline-offset: 3px;
+  font-weight: 500;
+}
+.prose a:hover {
+  text-decoration-color: var(--ink);
+}
+.prose blockquote {
+  font-style: normal;
+  font-weight: 500;
+  border-left-width: 2px;
+  padding: 0.25rem 0 0.25rem 1.25rem;
+}
+.prose code {
+  background: var(--surface-2);
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.4rem;
+  font-weight: 500;
+  font-size: 0.85em;
+  font-family: var(--font-mono);
+}
+.prose code::before,
+.prose code::after {
+  content: "";
+}
+.prose pre {
+  background: var(--surface-2);
+  color: var(--ink);
+  border-radius: 1rem;
+  border: 1px solid var(--line-soft);
+}
+.prose pre code {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  font-weight: 400;
+  font-size: 0.9em;
+  color: inherit;
+}
+
+/* ============================================================
+   Hero light-sketch portrait + traveling light sweep
+   ============================================================ */
+.portrait-light__img {
+  position: relative;
+  z-index: 1;
+  opacity: 0.9;
+  filter: grayscale(1);
+  /* Fade the figure out where it extends beyond the liquid orb, so it looks
+     like it emerges from the liquid. */
+  -webkit-mask-image: radial-gradient(
+    circle at 50% 47%,
+    #000 40%,
+    rgba(0, 0, 0, 0.45) 60%,
+    transparent 75%
+  );
+  mask-image: radial-gradient(
+    circle at 50% 47%,
+    #000 40%,
+    rgba(0, 0, 0, 0.45) 60%,
+    transparent 75%
+  );
+}
+/* Animated liquid "water in space" orb behind the wireframe portrait. */
+.liquid-orb {
+  position: absolute;
+  inset: -8%;
+  z-index: 0;
+  pointer-events: none;
+}
+.liquid-orb svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* ============================================================
+   Custom scrollbar
+   ============================================================ */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border: 3px solid var(--bg);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ink-faint);
+}
