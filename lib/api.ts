@@ -1,10 +1,12 @@
 import { compareAsc, format } from "date-fns";
 import fs from "fs";
 import matter from "gray-matter";
+import { marked } from "marked";
 import { join } from "path";
-import Showdown from "showdown";
 import { any, array, boolean, date, object, string, z } from "zod";
 import { timeAgo, toISO } from "./time";
+
+marked.setOptions({ async: false, gfm: true, breaks: false });
 
 // Zod schema for post data
 export const PostSchema = object({
@@ -34,7 +36,6 @@ function formatDate(date: Date): string {
 }
 
 export async function getPostById(postId: string): Promise<Post> {
-  const markdownConverter = new Showdown.Converter();
   const postIdWithoutExtension = postId.replace(/\.md$/, "");
   const fullPostPath = join("_posts", `${postIdWithoutExtension}.md`);
   const fileContents = await fs.promises.readFile(fullPostPath, "utf8");
@@ -43,7 +44,7 @@ export async function getPostById(postId: string): Promise<Post> {
 
   const { data, content } = matter(fileContents);
 
-  const htmlContent = markdownConverter.makeHtml(content);
+  const htmlContent = marked.parse(content) as string;
 
   const words = content.trim().split(/\s+/).filter(Boolean).length;
   const minutes = Math.max(1, Math.round(words / 200));

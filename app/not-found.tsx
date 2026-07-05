@@ -3,7 +3,7 @@
 import Image from "next-image-export-optimizer";
 import Link from "next/link";
 
-const NotFound = (): JSX.Element => {
+const NotFound = () => {
   return (
     <div className="flex flex-col items-center px-6 py-20 text-center sm:py-28">
       <div className="grid h-36 w-36 place-items-center rounded-full border border-[var(--line-soft)] bg-[var(--surface-2)]">

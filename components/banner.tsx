@@ -2,7 +2,7 @@ import { companyLabel, previousWork, roleLabel } from "@/constants";
 import LiquidOrb from "./liquid-orb";
 import SocialLinks from "./social-icons";
 
-const Banner = (): JSX.Element => {
+const Banner = () => {
   return (
     <section className="mb-20 pt-6 sm:pt-10">
       <div className="flex flex-col-reverse items-start gap-12 md:flex-row md:items-center md:justify-between">

@@ -4,10 +4,11 @@ import Image from "next-image-export-optimizer";
 import Link from "next/link";
 
 export async function generateMetadata({
-  params: { id },
+  params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
+  const { id } = await params;
   const { title, description, cover } = await getPostById(id);
   return {
     title,
@@ -22,10 +23,11 @@ export async function generateMetadata({
 }
 
 export default async function Post({
-  params: { id },
+  params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
+  const { id } = await params;
   const { html, title, publishedAt, publishedAtISO, tags, readingTime, cover } =
     await getPostById(id);
 

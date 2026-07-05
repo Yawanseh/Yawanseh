@@ -1,7 +1,7 @@
 import { getPostById } from "@/lib/api";
 import RelativeTime from "./relative-time";
 
-const Aside = async ({ id }: { id: string }): Promise<JSX.Element> => {
+const Aside = async ({ id }: { id: string }) => {
   const { title, description, publishedAt, publishedAtISO, readingTime, tags } =
     await getPostById(id);
 
