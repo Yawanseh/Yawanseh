@@ -4,22 +4,22 @@ import { MetadataRoute } from "next";
 
 export const dynamic = "force-static";
 
-export default async function sitemap(): Promise<
-  Promise<Promise<MetadataRoute.Sitemap>>
-> {
-  const routesMap = [""].map((route) => ({
-    url: `${siteUrl}${route}`,
-    lastModified: new Date().toISOString(),
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const posts = await getAllPosts();
+
+  const home = {
+    url: `${siteUrl}/`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 1,
+  };
+
+  const postRoutes = posts.map((post) => ({
+    url: `${siteUrl}/posts/${post.id}`,
+    lastModified: post.updated_at ?? new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
   }));
 
-  const postsPromise = getAllPosts().then((posts) =>
-    posts.map((post) => ({
-      url: `${siteUrl}/posts/${post.id}`,
-      lastModified: post.updated_at,
-    }))
-  );
-
-  const fetchedRoutes = (await Promise.all([postsPromise])).flat();
-
-  return [...routesMap, ...fetchedRoutes];
+  return [home, ...postRoutes];
 }

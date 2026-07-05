@@ -1,5 +1,8 @@
+import JsonLd from "@/components/json-ld";
 import RelativeTime from "@/components/relative-time";
+import { authorName, siteUrl } from "@/constants";
 import { getAllPosts, getPostById } from "@/lib/api";
+import { articleSchema } from "@/lib/seo";
 import Image from "next-image-export-optimizer";
 import Link from "next/link";
 
@@ -9,15 +12,34 @@ export async function generateMetadata({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const { title, description, cover } = await getPostById(id);
+  const { title, description, cover, tags, publishedAtISO } =
+    await getPostById(id);
+  const url = `/posts/${id}`;
   return {
     title,
     description,
+    keywords: tags,
+    authors: [{ name: authorName, url: siteUrl }],
     alternates: {
-      canonical: `/posts/${id}`,
+      canonical: url,
     },
     openGraph: {
-      images: cover,
+      type: "article",
+      title,
+      description,
+      url,
+      publishedTime: publishedAtISO,
+      modifiedTime: publishedAtISO,
+      authors: [authorName],
+      section: tags?.[0],
+      tags,
+      images: cover ? [{ url: cover, alt: title }] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: cover ? [cover] : undefined,
     },
   };
 }
@@ -28,11 +50,13 @@ export default async function Post({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
+  const post = await getPostById(id);
   const { html, title, publishedAt, publishedAtISO, tags, readingTime, cover } =
-    await getPostById(id);
+    post;
 
   return (
     <article className="surface overflow-hidden">
+      <JsonLd data={articleSchema(post)} />
       {cover && (
         <figure className="relative">
           <Image

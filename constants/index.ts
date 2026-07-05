@@ -19,3 +19,11 @@ export const siteUrl = "https://www.yawanseh.com";
 export const twitterCreator = "@LaithYounesY";
 export const twitterSite = "https://x.com/LaithYounesY";
 export const copyWrite = "Laith Younes";
+
+export const authorName = "Laith Younes";
+// Profiles used for schema.org sameAs (helps search engines link your identity).
+export const socialProfiles = [
+  "https://x.com/LaithYounesY",
+  "https://github.com/Yawanseh",
+  "https://www.linkedin.com/in/yawanseh/",
+];
